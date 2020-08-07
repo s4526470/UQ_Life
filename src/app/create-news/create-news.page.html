@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="showActionSheet()">
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div id="editing-area" class="ion-margin-top">
+    <ion-input class="ion-margin-top" placeholder="Title" [(ngModel)]="title"></ion-input>
+    <ion-input class="ion-margin-top" placeholder="Subtitle" [(ngModel)]="subtitle"></ion-input>
+    <ion-textarea class="ion-margin-top" placeholder="Write down here..." rows="12" cols="20" [(ngModel)]="content"></ion-textarea>
+    <div class="ion-margin-top">
+      <ion-label>Location Name:</ion-label>
+      <ion-select value="None" okText="Okay" cancelText="Cancel">
+        <ion-select-option value="None">None</ion-select-option>
+        <ion-select-option value="blonde">Blonde</ion-select-option>
+        <ion-select-option value="black">Black</ion-select-option>
+        <ion-select-option value="red">Red</ion-select-option>
+      </ion-select>
+    </div>
+    <ion-img class="ion-margin-top" *ngIf="picURL" src="{{ picURL }}"></ion-img>
+    <ion-button class="ion-margin-top" expand="block" (click)="saveNews()">Save</ion-button>
+  </div>
+
+
+</ion-content>
